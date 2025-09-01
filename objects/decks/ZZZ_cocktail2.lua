@@ -1,5 +1,38 @@
+-- 	"b_abandoned",
+-- 	"b_anaglyph",
+-- 	"b_black",
+-- 	"b_blue",
+-- 	"b_checkered",
+-- 	"b_erratic",
+-- 	"b_ghost",
+-- 	"b_green",
+-- 	"b_magic",
+-- 	"b_nebula",
+-- 	"b_painted",
+-- 	"b_plasma",
+-- 	"b_red",
+-- 	"b_yellow",
+-- 	"b_zodiac",
+-- 	"b_mp_violet",
+-- 	"b_mp_orange",
+-- 	"b_mp_oracle",
+-- 	"b_mp_gradient",
+local function filter_cocktail_decks(all_decks)
+	local target_decks = { "b_plasma", "b_yellow", "b_mp_orange" }
+	local filtered_decks = {}
+	for _, deck in ipairs(all_decks) do
+		for _, target in ipairs(target_decks) do
+			if deck == target then
+				filtered_decks[#filtered_decks + 1] = deck
+				break
+			end
+		end
+	end
+	return filtered_decks
+end
+
 SMODS.Back({
-	key = "cocktail",
+	key = "cocktail2",
 	config = {},
 	atlas = "mp_decks",
 	pos = { x = 4, y = 0 },
@@ -21,6 +54,9 @@ SMODS.Back({
 		end
 		table.sort(decks)
 		pseudoshuffle(decks, pseudoseed("mp_cocktail"))
+
+		decks = filter_cocktail_decks(decks)
+
 		local back = G.GAME.selected_back
 		for i = 1, 3 do
 			G.GAME.modifiers.mp_cocktail[i] = decks[i]
@@ -90,7 +126,7 @@ SMODS.Back({
 		for i = 1, 3 do
 			back:change_to(G.P_CENTERS[G.GAME.modifiers.mp_cocktail[i]])
 			local ret1, ret2 = back:trigger_effect(context)
-			back:change_to(G.P_CENTERS["b_mp_cocktail"])
+			back:change_to(G.P_CENTERS["b_mp_cocktail2"])
 			if ret1 or ret2 then return ret1, ret2 end
 		end
 	end,
