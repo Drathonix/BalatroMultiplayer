@@ -5,14 +5,6 @@ priority = 2147483600
 
 [[patches]]
 [patches.regex]
-target = "functions/state_events.lua"
-pattern = '''function end_round\(\)(?<pre>[\s\S]+?)func = function\(\)'''
-position = 'at'
-payload = "function end_round()$pre func = MP.LOBBY.code and MP.end_round or function()"
-times = 1
-
-[[patches]]
-[patches.regex]
 target = "game.lua"
 pattern = '''function Game:update_round_eval\(dt\)(?<pre>[\s\S]+?)if not G.STATE_COMPLETE then'''
 position = 'at'

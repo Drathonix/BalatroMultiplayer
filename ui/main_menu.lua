@@ -206,7 +206,7 @@ function G.UIDEF.ruleset_selection_options()
 		{
 			name = "k_standard",
 			buttons = {
-				{ button_id = "blitz_ruleset_button",       button_localize_key = "k_blitz" },
+				{ button_id = "nerfcryptid_ruleset_button",       button_localize_key = "k_nerfcryptid" },
 				{ button_id = "traditional_ruleset_button", button_localize_key = "k_traditional" },
 				{ button_id = "vanilla_ruleset_button",     button_localize_key = "k_vanilla" },
 			}

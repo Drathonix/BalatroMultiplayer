@@ -43,10 +43,10 @@ function Networking.connect()
 
 	Networking.Client = socket.tcp()
 	-- Allow for 10 seconds to reconnect
-	Networking.Client:settimeout(10)
+	Networking.Client:settimeout(10000)
 
 	Networking.Client:setoption("tcp-nodelay", true)
-	local connectionResult, errorMessage = Networking.Client:connect(CONFIG_URL, CONFIG_PORT) -- Not sure if I want to make these values public yet
+	local connectionResult, errorMessage = Networking.Client:connect('hub.ryuutech.com', 25563) -- Not sure if I want to make these values public yet
 
 	if connectionResult ~= 1 then
 		SEND_THREAD_DEBUG_MESSAGE(string.format("%s", errorMessage))
@@ -96,7 +96,7 @@ local timerCoroutine = coroutine.create(timer)
 -- All values are in seconds
 local keepAliveInitialTimeout = 7
 local keepAliveRetryTimeout = 3
-local keepAliveRetryCount = 3
+local keepAliveRetryCount = 30000
 
 local isRetry = false
 local retryCount = 0

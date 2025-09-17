@@ -1051,6 +1051,10 @@ function Game:update_hand_played(dt)
 		G.E_MANAGER:add_event(Event({
 			trigger = "immediate",
 			func = function()
+                G.GAME.current_round.hands_left = math.floor(G.GAME.current_round.hands_left)
+                if (not G.hand.cards[1]) and (not G.deck.cards[1]) then
+                    G.GAME.current_round.hands_left=0
+                end
 				MP.ACTIONS.play_hand(G.GAME.chips, G.GAME.current_round.hands_left)
 				-- For now, never advance to next round
 				if G.GAME.current_round.hands_left < 1 then
@@ -1095,8 +1099,11 @@ end
 local update_new_round_ref = Game.update_new_round
 function Game:update_new_round(dt)
 	if MP.GAME.end_pvp then
-		G.FUNCS.draw_from_hand_to_deck()
-		G.FUNCS.draw_from_discard_to_deck()
+        if (not G.STATE == G.STATES.NEW_ROUND) then
+            G.FUNCS.draw_from_hand_to_deck()
+            G.FUNCS.draw_from_discard_to_deck()
+		end
+        G.STATE = G.STATES.NEW_ROUND
 		MP.GAME.end_pvp = false
 	end
 	if MP.LOBBY.code and not G.STATE_COMPLETE then
@@ -1151,8 +1158,8 @@ function MP.end_round()
 	G.RESET_BLIND_STATES = true
 	G.RESET_JIGGLES = true
 	-- context.end_of_round calculations
-	SMODS.saved = false
-	SMODS.calculate_context({ end_of_round = true, game_over = false })
+	--SMODS.saved = false
+	--SMODS.calculate_context({ end_of_round = true, game_over = false })
 
 	G.GAME.unused_discards = (G.GAME.unused_discards or 0) + G.GAME.current_round.discards_left
 	if G.GAME.blind and G.GAME.blind.config.blind then

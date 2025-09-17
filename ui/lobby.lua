@@ -22,9 +22,9 @@ function G.UIDEF.get_connection_status_ui()
 					n = G.UIT.T,
 					config = {
 						scale = 0.3,
-						text = (MP.LOBBY.code and localize("k_in_lobby")) or (MP.LOBBY.connected and localize(
-							"k_connected"
-						)) or localize("k_warn_service"),
+						text = (MP.LOBBY.code and localize({type = 'variable',key = 'k_in_lobby',vars = {MP.SNAME}})) or
+						(MP.LOBBY.connected and localize({type = 'variable',key = 'k_connected',vars = {MP.SNAME}}))
+						or localize("k_warn_service"),
 						colour = G.C.UI.TEXT_LIGHT,
 					},
 				},

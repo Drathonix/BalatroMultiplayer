@@ -1,9 +1,9 @@
 return {
-	["username"] = "Guest",
+	["username"] = "SkibidiGod",
 	["blind_col"] = 1,
-	["server_url"] = "balatro.virtualized.dev",
-	["server_port"] = 8788,
-	["logging"] = false,
+	["server_url"] = "hub.ryuutech.com",
+	["server_port"] = 25563,
+	["logging"] = true,
 	["misprint_display"] = true,
 	["integrations"] = {
 		["TheOrder"] = false,

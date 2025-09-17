@@ -19,6 +19,7 @@ MP.LOBBY = {
 	is_host = false,
 	ready_to_start = false,
 }
+MP.SNAME = "Unknown"
 MP.GAME = {}
 MP.UI = {}
 MP.ACTIONS = {}
@@ -77,7 +78,7 @@ function MP.reset_lobby_config(persist_ruleset_and_gamemode)
 		pvp_start_round = 2,
 		timer_base_seconds = 150,
 		timer_increment_seconds = 60,
-		pvp_countdown_seconds = 3,
+		pvp_countdown_seconds = 0,
 		showdown_starting_antes = 3,
 		ruleset = persist_ruleset_and_gamemode and MP.LOBBY.config.ruleset or "ruleset_mp_blitz",
 		gamemode = persist_ruleset_and_gamemode and MP.LOBBY.config.gamemode or "gamemode_mp_attrition",
@@ -215,5 +216,6 @@ MP.load_mp_file("misc/mod_hash.lua")
 
 local SOCKET = MP.load_mp_file("networking/socket.lua")
 MP.NETWORKING_THREAD = love.thread.newThread(SOCKET)
+sendDebugMessage()
 MP.NETWORKING_THREAD:start(SMODS.Mods["Multiplayer"].config.server_url, SMODS.Mods["Multiplayer"].config.server_port)
 MP.ACTIONS.connect()

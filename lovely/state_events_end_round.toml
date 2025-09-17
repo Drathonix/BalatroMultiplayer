@@ -1,0 +1,97 @@
+[manifest]
+version = "1.0.0"
+dump_lua = true
+priority = 2147483600
+
+[[patches]]
+[patches.regex]
+target = 'functions/state_events.lua'
+pattern = '''func = function()
+        local game_over = true
+'''
+position = 'at'
+payload = '''func = function()
+        local isMP = MP.LOBBY.code and MP.end_round
+        if isMP then
+            if and MP.GAME.round_ended then
+                if not MP.GAME.duplicate_end then
+                    MP.GAME.duplicate_end = true
+                    sendDebugMessage('Duplicate end_round calls prevented.', 'MULTIPLAYER');
+                end
+                return true
+            end
+            MP.GAME.round_ended  = true
+
+            G.GAME.blind.in_blind = false
+	    end
+        local game_over = !isMP
+'''
+times = 1
+
+[[patches]]
+[patches.regex]
+target = 'functions/state_events.lua'
+pattern = '''                G.FUNCS.draw_from_discard_to_deck()
+'''
+position = 'after'
+payload = '''-- This handles an edge case where a player plays no hands, and discards the only cards in their deck.
+	-- Allows opponent to advance after playing anything, and eases a life from the person who discarded their deck.
+	if isMP and G.GAME.current_round.hands_played == 0
+	   and G.GAME.current_round.discards_used > 0
+	   and MP.LOBBY.config.gamemode ~= "gamemode_mp_survival" then
+			if MP.is_pvp_boss() then
+				MP.ACTIONS.play_hand(0, 0)
+			end
+
+			MP.ACTIONS.fail_round(1)
+	end
+'''
+times = 1
+
+[[patches]]
+[patches.regex]
+target = 'functions/state_events.lua'
+pattern = '''if isMP and G.GAME.round_resets.blind == G.P_BLINDS.bl_small then
+                            G.GAME.round_resets.blind_states.Small = 'Defeated'
+                        elseif G.GAME.round_resets.blind == G.P_BLINDS.bl_big then
+                            G.GAME.round_resets.blind_states.Big = 'Defeated'
+                        else
+                            G.GAME.current_round.voucher = get_next_voucher_key()
+                            G.GAME.round_resets.blind_states.Boss = 'Defeated'
+                            for k, v in ipairs(G.playing_cards) do
+                                v.ability.played_this_ante = nil
+                            end
+                        end
+'''
+position = 'at'
+payload = '''local temp_furthest_blind = 0
+
+			if G.GAME.round_resets.blind_states.Small ~= "Defeated" and G.GAME.round_resets.blind_states.Small ~= "Skipped" then
+				G.GAME.round_resets.blind_states.Small = "Defeated"
+				if isMP then
+				    temp_furthest_blind = G.GAME.round_resets.ante * 10 + 1
+                end
+			elseif G.GAME.round_resets.blind_states.Big ~= "Defeated" and G.GAME.round_resets.blind_states.Big ~= "Skipped" then
+				G.GAME.round_resets.blind_states.Big = "Defeated"
+                if isMP then
+				    temp_furthest_blind = G.GAME.round_resets.ante * 10 + 2
+				end
+			else
+				G.GAME.current_round.voucher = SMODS.get_next_vouchers()
+				G.GAME.round_resets.blind_states.Boss = "Defeated"
+				if isMP then
+				    temp_furthest_blind = (G.GAME.round_resets.ante - 1) * 10 + 3
+                end
+				for k, v in ipairs(G.playing_cards) do
+					v.ability.played_this_ante = nil
+				end
+			end
+            if isMP then
+                MP.GAME.furthest_blind = (temp_furthest_blind > MP.GAME.furthest_blind) and temp_furthest_blind or
+                MP.GAME.furthest_blind
+                MP.ACTIONS.set_furthest_blind(MP.GAME.furthest_blind)
+                MP.GAME.pincher_index = MP.GAME.pincher_index + 1
+			end
+'''
+times = 1
+

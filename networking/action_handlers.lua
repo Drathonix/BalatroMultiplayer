@@ -247,6 +247,11 @@ local function action_player_info(lives)
 	end
 	MP.GAME.lives = lives
 end
+---@param handsLeft number
+---+++
+local function action_player_combat_info(hands_left)
+	MP.GAME.hands_left = hands_left
+end
 
 local function action_win_game()
 	MP.end_game_jokers_payload = ""
@@ -422,6 +427,15 @@ end
 
 local function action_version()
 	MP.ACTIONS.version()
+end
+
+
+local function action_asi(name)
+	MP.SNAME=name
+    MP.UI.update_connection_status()
+    sendTraceMessage('received')
+    sendTraceMessage(name)
+
 end
 
 local action_asteroid = action_asteroid
@@ -963,7 +977,7 @@ function Game:update(dt)
 		local msg = love.thread.getChannel("networkToUi"):pop()
 		if msg then
 			local parsedAction = string_to_table(msg)
-
+			sendTraceMessage(msg)
 			if not ((parsedAction.action == "keepAlive") or (parsedAction.action == "keepAliveAck")) then
 				local log = string.format("Client got %s message: ", parsedAction.action)
 				for k, v in pairs(parsedAction) do
@@ -986,6 +1000,8 @@ function Game:update(dt)
 				action_connected()
 			elseif parsedAction.action == "version" then
 				action_version()
+            elseif parsedAction.action == "additionalServerInfo" then
+                action_asi(parsedAction.name)
 			elseif parsedAction.action == "disconnected" then
 				action_disconnected()
 			elseif parsedAction.action == "joinedLobby" then
@@ -1013,6 +1029,8 @@ function Game:update(dt)
 				action_end_pvp()
 			elseif parsedAction.action == "playerInfo" then
 				action_player_info(parsedAction.lives)
+            elseif parsedAction.action == "playerCombatInfo" then
+                action_player_combat_info(parsedAction.handsLeft)
 			elseif parsedAction.action == "winGame" then
 				action_win_game()
 			elseif parsedAction.action == "loseGame" then
