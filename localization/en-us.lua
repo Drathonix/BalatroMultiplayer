@@ -31,7 +31,7 @@ return {
 			j_mp_skip_off = {
 				name = "Skip-Off",
 				text = {
-					"{C:blue}+#1#{} hand and {C:red}+#2#{} discard",
+					"{C:blue}+#1#{} Hands and {C:red}+#2#{} Discards",
 					"per additional {C:attention}Blind{} skipped",
 					"compared to your {X:purple,C:white}Nemesis{}",
 					"{C:inactive}(Currently {C:blue}+#3#{C:inactive}/{C:red}+#4#{C:inactive}, #5#)",
@@ -91,12 +91,13 @@ return {
 					"{C:inactive}(Currently {C:attention}#2#{C:inactive}/#3# rounds)",
 				},
 			},
+
 			j_mp_pizza = {
 				name = "Pizza",
 				text = {
 					"At the end of the next {C:attention}PvP Blind{},",
 					"consume this Joker and grant",
-					"{C:red}+#1#{} discard to you and",
+					"{C:red}+#1#{} discards to you and",
 					"{C:red}+#2#{} discards to your {X:purple,C:white}Nemesis{} for the ante",
 				},
 			},
@@ -115,15 +116,6 @@ return {
 					"{C:attention}#1#{} additional time",
 				},
 			},
-			j_mp_cloud_9 = {
-				name = "Cloud 9",
-				text = {
-					"Earn {C:money}$1{} for each {C:attention}9{} in deck",
-					"(max {C:money}$4{}), then {C:money}$#1#{} for each",
-					"additional {C:attention}9{} at end of round",
-					"{C:inactive}(Currently {C:money}$#2#{}{C:inactive})",
-				},
-			},
 			j_mp_bloodstone = {
 				name = "Bloodstone",
 				text = {
@@ -133,14 +125,207 @@ return {
 					"{X:mult,C:white} X#3# {} Mult when scored",
 				},
 			},
-			j_mp_bloodstone2 = {
+			j_mp_magnet_sandbox = {
+				name = "Magnet",
+				text = {
+					"After {C:attention}#1#{} rounds, sell",
+					"this card to {C:attention}Copy{} your {X:purple,C:white}Nemesis'{}",
+					"highest sell cost {C:attention}Joker{}",
+					"polarity inverts after {C:attention}#3#{} rounds",
+					"BECOMING WORTHLESS SCRAP METAL!!!!",
+					"{C:inactive}(Currently {C:attention}#2#{C:inactive}/#1# rounds)",
+				},
+			},
+			j_mp_cloud_9_sandbox = {
+				name = "Cloud 9",
+				text = {
+					"NUMERAL MONOCULTURE FARMER",
+					"converting your DIVERSE DECK into",
+					"PROFITABLE NINE PLANTATION!!!!",
+					"{C:inactive}({C:green}#1# in #2#{} {C:inactive}chance, currently {C:money}$#3#{}{C:inactive})",
+				},
+			},
+			j_mp_lucky_cat_sandbox = {
+				name = "Lucky Cat",
+				text = {
+					"FORTUNE-TO-FRAGILITY PIPELINE OPERATOR",
+					"lucky cats become GLASS CATS",
+					"with EXPONENTIAL POWER!!!!",
+					"{C:inactive}(Currently {X:mult,C:white} X#2# {C:inactive} Mult)",
+				},
+			},
+			j_mp_constellation_sandbox = {
+				name = "Constellation",
+				text = {
+					"planet maintenance anxiety disorder",
+					"MUST FEED THE TAMAGOCHI",
+					"or it WITHERS AWAY!!!!",
+					"{C:inactive}(Currently {X:mult,C:white} X#1# {C:inactive} Mult)",
+				},
+			},
+			j_mp_bloodstone_sandbox = {
 				name = "Bloodstone",
 				text = {
-					"{C:green}#1# in #2#{} chance for",
-					"played cards with",
-					"{C:hearts}Heart{} suit to give",
-					"{X:mult,C:white} X#3# {} Mult when scored",
-					"(Includes experimental variance)",
+					"PATCH NOTE REGRESSION SYNDROME",
+					"reverting to LAUNCH DAY TRAUMA",
+					"for NOSTALGIC POWER SPIKES!!!!",
+					"{C:inactive}({C:green}#1# in #2#{} {C:inactive}chance)",
+				},
+			},
+			j_mp_juggler_sandbox = {
+				name = "Juggler",
+				text = {
+					"HAND SIZE PERFECTIONIST",
+					"who must keep ALL THE CARDS",
+					"in the air AT ALL TIMES!!!!",
+					"{C:inactive}(Currently {C:attention}+#1#{C:inactive} hand size)",
+				},
+			},
+			j_mp_mail_sandbox = {
+				name = "Mail-in Rebate",
+				text = {
+					"RANK-LOCKED REBATE FORM",
+					"someone wrote {C:attention}#2#{} in",
+					"PERMANENT INK!!!!",
+				},
+			},
+			j_mp_hit_the_road_sandbox = {
+				name = "Hit the Road",
+				text = {
+					"HIGHWAY JACK DISPOSAL",
+					"launching {C:attention}Jacks{}",
+					"INTO THE ASPHALT FOREVER!!!!",
+					"{C:inactive}(Currently {X:mult,C:white} X#2# {C:inactive} Mult)",
+				},
+			},
+			j_mp_misprint_sandbox = {
+				name = "Misprint",
+				text = {
+					"SCHRODINGER'S LOTTERY PLAYER",
+					"ticket both WINS AND LOSES",
+					"until checked!!!!",
+					"{C:inactive}({V:1}#1#{C:inactive} Mult)",
+				},
+			},
+			j_mp_castle_sandbox = {
+				name = "Castle",
+				text = {
+					"DISCARD-BASED SUIT MARRIAGE",
+					"throws away ONLY {V:1}#1#{} forever",
+					"because THAT'S THEIR LOVE LANGUAGE!!!!",
+					"{C:inactive}(Currently {C:chips}+#2#{C:inactive} chips)",
+				},
+			},
+			j_mp_runner_sandbox = {
+				name = "Runner",
+				text = {
+					"SEQUENTIAL CARD SUPREMACIST",
+					"who believes ALL other",
+					"POKER HANDS are INFERIOR!!!!",
+					"{C:inactive}(Currently {C:chips}+#1#{C:inactive})",
+				},
+			},
+			j_mp_order_sandbox = {
+				name = "The Order",
+				text = {
+					"PEASANT UPRISING COORDINATOR",
+					"organizing the NUMBERS to overthrow",
+					"their FACE CARD OPPRESSORS!!!!",
+				},
+			},
+			j_mp_photograph_sandbox = {
+				name = "Photograph",
+				text = {
+					"SINGLE SHOT PHOTOGRAPHER who gets",
+					"ONE PERFECT FRAME PER HAND!!!!",
+				},
+			},
+			j_mp_ride_the_bus_sandbox = {
+				name = "Ride the Bus",
+				text = {
+					"FACE CARD SOBRIETY PROGRAM",
+					"ONE FACE CARD and you're",
+					"KICKED OFF THE BUS!!!!",
+					"{C:inactive}(Currently {C:mult}+#1#{C:inactive} Mult)",
+				},
+			},
+			j_mp_loyalty_card_sandbox = {
+				name = "Loyalty Card",
+				text = {
+					"HAND TYPE LOYALTY PROGRAM",
+					"betray {C:attention}#1#{}",
+					"and counter RESETS!!!!",
+					"{C:inactive}(Loyal for {C:attention}#2#/#3#{} {C:inactive}hands)",
+				},
+			},
+			j_mp_faceless_sandbox = {
+				name = "Faceless Joker",
+				text = {
+					"ELITE FACE CARD SOMMELIER",
+					"who curates artisanal",
+					"THREE-VARIETY TASTING FLIGHTS",
+					"for PREMIUM DISPOSAL EXPERIENCES!!!!",
+				},
+			},
+			j_mp_square_sandbox = {
+				name = "Square Joker",
+				text = {
+					"FOUR CARD PERFECTIONIST",
+					"who worships THE SACRED GEOMETRY OF",
+					"PERFECTLY BALANCED SQUARE ARRANGEMENTS!!!!",
+					"{C:inactive}(Currently {C:chips}+#1#{C:inactive} Chips)",
+				},
+			},
+			j_mp_throwback_sandbox = {
+				name = "Throwback",
+				text = {
+					"PROFESSIONAL COWARD CONSULTING SERVICES",
+					"i get PAID to run away from things",
+					"AND THE MORE I RUN THE STRONGER I GET!!!!",
+					"{C:inactive}(Currently {X:mult,C:white} X#1# {C:inactive} Mult)",
+				},
+			},
+			j_mp_vampire_sandbox = {
+				name = "Vampire",
+				text = {
+					"vampire economist CREATING",
+					"STONE-BASED CURRENCY",
+					"FROM LIFE FORCE!!!!",
+					"{C:inactive}(Currently {X:mult,C:white} X#2# {C:inactive} Mult)",
+				},
+			},
+			j_mp_baseball_sandbox = {
+				name = "Baseball Card",
+				text = {
+					'SPORTS CARD "CONTROVERSY"',
+					"disguised as BALANCE CHANGE!!!!",
+				},
+			},
+			j_mp_steel_joker_sandbox = {
+				name = "Steel Joker",
+				text = {
+					"STEEL REDUNDANCY SPECIALIST",
+					"every PLAYED ALLOY gets",
+					"DOUBLE-CHECKED!!!!",
+				},
+			},
+			j_mp_satellite_sandbox = {
+				name = "Satellite",
+				text = {
+					"chronic satellite degradation anxiety",
+					"INFRASTRUCTURE SLOWLY FALLS APART",
+					"WITHOUT CONSTANT PLANETARY UPGRADES!!!!",
+					"{C:inactive}(Currently {C:money}$#1#{C:inactive})",
+				},
+			},
+			j_mp_error_sandbox = {
+				name = "????",
+				text = {
+					-- "PREVIEW DISABLED",
+					"{X:purple,C:white,s:0.85}something's{} {X:purple,C:white,s:0.85}wrong",
+					-- "PREVIEW DISABLED",
+					-- "PREVIEW DISABLED",
+					-- "{C:inactive}(CURRENTLY {C:money}$7{C:inactive})",
 				},
 			},
 		},
@@ -183,12 +368,108 @@ return {
 				},
 			},
 		},
+		Back = {
+			b_mp_cocktail = {
+				name = "Cocktail Deck",
+				text = {
+					"Copies all effects",
+					"of {C:attention}3{} other decks",
+					"at random",
+				},
+			},
+			b_mp_gradient = {
+				name = "Gradient Deck",
+				text = {
+					"Cards are also considered",
+					"one rank {C:attention}higher{} or {C:attention}lower",
+					"for all {C:attention}Joker{} effects",
+				},
+			},
+			b_mp_indigo = {
+				name = "Indigo Deck",
+				text = {
+					"Choose {C:attention}1{} extra card",
+					"from all Booster Packs",
+				},
+			},
+			b_mp_orange = {
+				name = "Orange Deck",
+				text = {
+					"Start run with a",
+					"{C:attention,T:p_mp_standard_giga}Giga Standard Pack{}, and",
+					"{C:attention}2{} copies of {C:tarot,T:c_hanged_man}The Hanged Man",
+				},
+			},
+			b_mp_oracle = {
+				name = "Oracle Deck",
+				text = {
+					"Start run with {C:spectral,T:c_medium}Medium",
+					"and {C:attention,T:v_clearance_sale}Clearance Sale",
+					"Balance is capped",
+					"at {C:money}$50",
+				},
+			},
+			b_mp_violet = {
+				name = "Violet Deck",
+				text = {
+					"{C:attention}+1{} Voucher in shop",
+					"During Ante {C:attention}1{}, Vouchers",
+					"are {C:attention}50%{} off",
+				},
+			},
+			b_mp_heidelberg = {
+				name = "Heidelberg Deck",
+				text = {
+					"Creates a {C:dark_edition}Negative{} copy of",
+					"{C:attention}1{} random {C:attention}consumable{}",
+					"card in your possession",
+					"at the end of the {C:attention}shop",
+				},
+			},
+		},
 		Other = {
 			current_nemesis = {
 				name = "Nemesis",
 				text = {
 					"{X:purple,C:white}#1#{}",
 					"Your one and only Nemesis",
+				},
+			},
+			p_mp_standard_giga = {
+				name = "Giga Standard Pack",
+				text = {
+					"Choose {C:attention}#1#{} of up to",
+					"{C:attention}#2#{C:attention} Playing{} cards to",
+					"add to your deck",
+					"{C:attention}Unskippable{}",
+				},
+			},
+		},
+		Stake = {
+			stake_mp_planet = {
+				name = "Planet Stake",
+				text = {
+					"{C:attention}Orange Stake{}'s cooler older sibling",
+					"who graciously returned your",
+					"{C:red}emotional support discard{} because",
+					"even they aren't that cruel",
+				},
+			},
+			stake_mp_spectral = {
+				name = "Spectral Stake",
+				text = {
+					"Applies {C:planet}Planet Stake{} effects, plus:",
+					"{C:money}Rental{} Jokers appear in shop",
+					"Required score scales",
+					"faster for each {C:attention}Ante",
+				},
+			},
+			stake_mp_spectralplus = {
+				name = "Spectral+ Stake",
+				text = {
+					"Applies {C:planet}Spectral Stake{} effects, plus:",
+					"Required score scales",
+					"even faster for each {C:attention}Ante",
 				},
 			},
 		},
@@ -236,8 +517,9 @@ return {
 			b_opts_player_diff_deck = "Players have different decks",
 			b_opts_normal_bosses = "Enable Boss Blind effects",
 			b_opts_timer = "Enable Timer",
-			b_opts_disable_preview = "Disable Score Preview (Coming Soon)",
-			b_opts_disable_the_order = "Disable The Order (Coming Soon)",
+			b_opts_disable_preview = "Disable Score Preview",
+			b_opts_the_order = "Enable The Order",
+			b_opts_legacy_smallworld = "Legacy Small World mechanics",
 			b_reset = "Reset",
 			b_set_custom_seed = "Set Custom Seed",
 			b_mp_kofi_button = "Supporting me on Ko-fi",
@@ -248,6 +530,7 @@ return {
 			b_lobby_info = "Lobby Info",
 			b_continue_singleplayer = "Continue in Singleplayer",
 			b_the_order_integration = "Enable The Order Integration",
+			b_preview_integration = "Enable Score Preview",
 			b_view_nemesis_deck = "View Decks",
 			b_toggle_jokers = "Toggle Jokers",
 			b_skip_tutorial = "Skip Tutorial",
@@ -279,6 +562,7 @@ return {
 			k_paste = "Paste From Clipboard",
 			k_username = "Username:",
 			k_enter_username = "Enter username",
+			k_customize_preview = "Customize Preview Text:",
 			k_join_discord = "Join the ",
 			k_discord_msg = "You can report any bugs and find players to play there",
 			k_enter_to_save = "Press enter to save",
@@ -292,6 +576,7 @@ return {
 			k_warning_no_order = "One player has The Order integration enabled while the other does not. This will cause the seeds to differ.",
 			k_warning_cheating1 = "If you are seeing this, your opponent may be cheating.",
 			k_warning_cheating2 = "If this is a ranked game, please send the message '%s' and then open a support ticket in #support",
+			k_warning_banned_mods = "One or more players have banned mods installed. These mods are not allowed in ranked games.",
 			k_message1 = "Hold on, my mom made pizza pops",
 			k_message2 = "One sec, i gotta grab my slow cooker pork roast",
 			k_message3 = "One moment, getting a call from my mom",
@@ -320,7 +605,7 @@ return {
 			k_current_seed = "Current seed: ",
 			k_random = "Random",
 			k_standard = "Standard",
-			k_sandbox = "Steph's Sandbox",
+			k_sandbox = "Sandbox",
 			k_sandbox_description = "Like normal mode but someone gave the cards coffee and they're\nfeeling chatty.",
 			k_vanilla = "Vanilla",
 			k_vanilla_description = "This ruleset removes all Multiplayer content,\nallowing you to play the game as originally designed.\n\nThis ruleset still includes Multiplayer features like the timer.\n\n(Disableable in Lobby Options)",
@@ -329,11 +614,11 @@ return {
 			k_traditional = "Traditional",
 			k_traditional_description = "This ruleset removes the aspects of Multiplayer that use time as a resource.\n\nThis ruleset allows you to play with the Multiplayer content,\nwhile still allowing for a methodical game.\n\nSome cards are balanced in this ruleset to better fit the Multiplayer meta:\n- Hanging Chad is reworked\n- Justice is removed\n- Glass is reworked\n\n(See the bans and reworks tabs for more info)",
 			k_majorleague = "Major League",
-			k_majorleague_description = "This is the official ruleset for Major League Balatro.\n\nThis ruleset is the same as the Vanilla ruleset with a few exceptions:\n- You must have The Order Integration disabled\n- The timer is set to 180 seconds\n- The first time the timer hits 0 seconds you will not lose a life",
+			k_majorleague_description = "This is the official ruleset for Major League Balatro.\n\nThis ruleset is the same as the Vanilla ruleset with a few exceptions:\n- The Order Integration is disabled\n- The timer is set to 180 seconds\n- The first time the timer hits 0 seconds you will not lose a life",
 			k_minorleague = "Minor League",
-			k_minorleague_description = "This is the official ruleset for Minor League Balatro.\n\nThis ruleset is the same as the Vanilla ruleset with a few exceptions:\n- You must have The Order Integration enabled\n- The timer is set to 180 seconds\n- The first time the timer hits 0 seconds you will not lose a life",
+			k_minorleague_description = "This is the official ruleset for Minor League Balatro.\n\nThis ruleset is the same as the Vanilla ruleset with a few exceptions:\n- The Order Integration is enabled\n- The timer is set to 180 seconds\n- The first time the timer hits 0 seconds you will not lose a life",
 			k_ranked = "Ranked",
-			k_ranked_description = "This is the official ruleset for playing Ranked Balatro Multiplayer.\n\nThis ruleset is the same as the Blitz ruleset with a few exceptions:\n- You must have The Order Integration enabled\n- You must be on the recommended Steamodded version",
+			k_ranked_description = "This is the official ruleset for playing Ranked Balatro Multiplayer.\n\nThis ruleset is the same as the Blitz ruleset with a few exceptions:\n- The Order Integration is enabled\n- You must be on the recommended Steamodded version",
 			k_badlatro = "Badlatro",
 			k_badlatro_description = "A weekly ruleset designed by @dr_monty_the_snek on the discord server\nthat has been added to the mod permanently.\n\nThis ruleset bans 48 jokers, consumables, tags, etc.",
 			k_attrition = "Attrition",
@@ -346,6 +631,7 @@ return {
 			k_weekly_description = "A special ruleset that changes weekly or bi-weekly. I guess you'll have to find out what it is! Currently: ",
 			k_smallworld = "Small World",
 			k_smallworld_description = "A heavily experimental ruleset, where 3/4 of everything in the game\nis randomly banned for some reason",
+			k_destabilized = "Destabilized",
 			k_oops_ex = "Oops!",
 			k_asteroids = "Asteroids",
 			k_amount_short = "Amt.",
@@ -358,6 +644,8 @@ return {
 			k_your_deck = "Your Deck",
 			k_the_order_credit = "*Credit to @MathIsFun_",
 			k_the_order_integration_desc = "This will patch card creation to not be ante-based and use a single pool for every type/rarity",
+			k_preview_credit = "*Credit to @Fantom, @Divvy",
+			k_preview_integration_desc = "This will enable score preview before playing a hand",
 			k_requires_restart = "*Requires a restart to take effect",
 			k_new_weekly_ruleset = "A new weekly ruleset is available!",
 			k_currently_colon = "Currently: ",
@@ -406,6 +694,13 @@ return {
 		v_text = {
 			ch_c_hanging_chad_rework = { "{C:attention}Hanging Chad{} is {C:dark_edition}reworked" },
 			ch_c_glass_cards_rework = { "{C:attention}Glass Cards{} are {C:dark_edition}reworked" },
+			ch_c_mp_score_instability = { "Unbalanced score is {C:purple}destabilized{} further:" },
+			ch_c_mp_score_instability_EXAMPLE = {
+				"  {C:inactive}(ex: {C:chips}30{C:inactive}x{C:mult}24{C:inactive} -> {C:chips}36{C:inactive}x{C:mult}18{C:inactive})",
+			},
+			ch_c_mp_score_instability_LOC1 = { "  {C:inactive}Minimum of {C:attention}1 {C:mult}Mult" },
+			ch_c_mp_score_instability_LOC2 = { "  {C:inactive}Minimum of {C:attention}0 {C:chips}Chips" },
+			ch_c_mp_ante_scaling = { "{C:red}X#1#{} base Blind size" },
 		},
 		challenge_names = {
 			c_mp_misprint_deck = "Misprint Deck",
@@ -422,6 +717,7 @@ return {
 			c_mp_skip_off = "Skip-Off",
 			c_mp_lets_go_gambling = "Let's Go Gambling",
 			c_mp_speed = "Speed",
+			c_mp_balancing_act = "Balancing Act",
 		},
 	},
 }

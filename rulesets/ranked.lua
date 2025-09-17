@@ -2,7 +2,8 @@ MP.Ruleset({
 	key = "ranked",
 	multiplayer_content = true,
 	standard = true,
-	banned_jokers = { "j_bloodstone", "j_hanging_chad" },
+	banned_silent = { "j_bloodstone", "j_hanging_chad" },
+	banned_jokers = {},
 	banned_consumables = {
 		"c_justice",
 	},
@@ -12,7 +13,6 @@ MP.Ruleset({
 	banned_blinds = {},
 	reworked_jokers = {
 		"j_mp_hanging_chad",
-		"j_mp_bloodstone",
 	},
 	reworked_consumables = {},
 	reworked_vouchers = {},
@@ -22,98 +22,23 @@ MP.Ruleset({
 	reworked_tags = {},
 	reworked_blinds = {},
 	create_info_menu = function()
-		return {
-			{
-				n = G.UIT.R,
-				config = {
-					align = "tm",
-				},
-				nodes = {
-					MP.UI.BackgroundGrouping(localize("k_has_multiplayer_content"), {
-						{
-							n = G.UIT.T,
-							config = {
-								text = localize("k_yes"),
-								scale = 0.8,
-								colour = G.C.GREEN,
-							},
-						},
-					}, { col = true, text_scale = 0.6 }),
-					{
-						n = G.UIT.C,
-						config = {
-							minw = 0.1,
-							minh = 0.1,
-						},
-					},
-					MP.UI.BackgroundGrouping(localize("k_forces_lobby_options"), {
-						{
-							n = G.UIT.T,
-							config = {
-								text = localize("k_yes"),
-								scale = 0.8,
-								colour = G.C.GREEN,
-							},
-						},
-					}, { col = true, text_scale = 0.6 }),
-					{
-						n = G.UIT.C,
-						config = {
-							minw = 0.1,
-							minh = 0.1,
-						},
-					},
-					MP.UI.BackgroundGrouping(localize("k_forces_gamemode"), {
-						{
-							n = G.UIT.T,
-							config = {
-								text = localize("k_attrition"),
-								scale = 0.8,
-								colour = G.C.GREEN,
-							},
-						},
-					}, { col = true, text_scale = 0.6 }),
-				},
-			},
-			{
-				n = G.UIT.R,
-				config = {
-					minw = 0.05,
-					minh = 0.05,
-				},
-			},
-			{
-				n = G.UIT.R,
-				config = {
-					align = "cl",
-					padding = 0.1,
-				},
-				nodes = {
-					{
-						n = G.UIT.T,
-						config = {
-							text = localize("k_ranked_description"),
-							scale = 0.6,
-							colour = G.C.UI.TEXT_LIGHT,
-						},
-					},
-				},
-			},
-		}
+		return MP.UI.CreateRulesetInfoMenu({
+			multiplayer_content = true,
+			forced_lobby_options = true,
+			forced_gamemode_text = "k_attrition",
+			description_key = "k_ranked_description"
+		})
 	end,
 	forced_gamemode = "gamemode_mp_attrition",
 	forced_lobby_options = true,
 	is_disabled = function(self)
-		local required_version = "1.0.0~BETA-0506a"
-		if SMODS.version ~= required_version then
-			return localize({ type = "variable", key = "k_ruleset_disabled_smods_version", vars = { required_version } })
-		end
-		if not MP.INTEGRATIONS.TheOrder then
-			return localize("k_ruleset_disabled_the_order_required")
+		if SMODS.version ~= MP.SMODS_VERSION then
+			return localize({ type = "variable", key = "k_ruleset_disabled_smods_version", vars = { MP.SMODS_VERSION } })
 		end
 		return false
 	end,
 	force_lobby_options = function(self)
+		MP.LOBBY.config.the_order = true
 		return true
 	end,
 }):inject()

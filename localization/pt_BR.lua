@@ -148,12 +148,71 @@ return {
 				},
 			},
 		},
+		Back = {
+			b_mp_cocktail = {
+				name = "Baralho Coquetel",
+				text = {
+					"Copia todos os efeitos",
+					"de {C:attention}3{} outros baralhos",
+					"aleatoriamente",
+				},
+			},
+			b_mp_gradient = {
+				name = "Baralho Gradiente",
+				text = {
+					"Cartas também são consideradas",
+					"uma classe {C:attention}acima{} ou {C:attention}abaixo",
+					"para todos os efeitos de {C:attention}Curinga{}",
+				},
+			},
+			b_mp_indigo = {
+				name = "Baralho Índigo",
+				text = {
+					"Escolha {C:attention}1{} carta extra",
+					"em Pacotes de Reforço",
+				},
+			},
+			b_mp_orange = {
+				name = "Baralho Laranja",
+				text = {
+					"Comece a partida com um",
+					"{C:attention,T:p_mp_standard_giga}Pacote Padrão Giga{}, e",
+					"{C:attention}2{} cópias de {C:tarot,T:c_hanged_man}O Enforcado",
+				},
+			},
+			b_mp_oracle = {
+				name = "Baralho Oráculo",
+				text = {
+					"Comece a partida com {C:spectral,T:c_medium}Médium",
+					"e {C:attention,T:v_clearance_sale}Promoção",
+					"Dinheiro é limitado",
+					"a {C:money}$50",
+				},
+			},
+			b_mp_violet = {
+				name = "Baralho Violeta",
+				text = {
+					"{C:attention}+1{} Cupom na loja",
+					"Durante a aposta {C:attention}1{}, Cupons",
+					"são {C:attention}50%{} mais baratos",
+				},
+			},
+		},
 		Other = {
 			current_nemesis = {
 				name = "Rival",
 				text = {
 					"{X:purple,C:white}#1#{}",
 					"Seu único rival",
+				},
+			},
+			p_mp_standard_giga = {
+				name = "Pacote Padrão Giga",
+				text = {
+					"Escolha {C:attention}#1#{} de até",
+					"{C:attention}#2#{C:attention} cartas{} para",
+					"adicionar ao seu baralho",
+					"{C:attention}Não é possível ignorar{}",
 				},
 			},
 		},
@@ -233,8 +292,8 @@ return {
 			k_set_name = "Defina o seu nome de usuário no menu principal! (Mods > Multiplayer > Config)",
 			k_mod_hash_warning = "Jogadores tem mods diferentes ou mods com versões diferentes! Isso pode causar problemas!",
 			k_warning_unlock_profile = "O perfil em que você está jogando não está completamente desbloqueado. Se esta for uma partida ranqueada ou de torneio, por favor crie um novo perfil e aperte Desbloquear Tudo nas configurações do perfil",
-			k_warning_nemesis_unlock = "Seu oponente está jogando em um perfil que não está totalmente desbloqueado. Instrua-o a criar um novo perfil e clicar em \"Desbloquear tudo\" nas configurações do perfil.",
-			k_warning_no_order = "Um jogador tem a integração com \"The Order\" habilitada, enquanto o outro não. Isso fará com que os códigos sejam diferentes.",
+			k_warning_nemesis_unlock = 'Seu oponente está jogando em um perfil que não está totalmente desbloqueado. Instrua-o a criar um novo perfil e clicar em "Desbloquear tudo" nas configurações do perfil.',
+			k_warning_no_order = 'Um jogador tem a integração com "The Order" habilitada, enquanto o outro não. Isso fará com que os códigos sejam diferentes.',
 			k_warning_cheating1 = "Se você está vendo essa mensagem, seu oponente pode estar trapaceando.",
 			k_warning_cheating2 = "Se essa é uma partida ranqueada, por favor mande a mensagem '%s' e depois abra um ticket de suporte em #support",
 			k_message1 = "Espere, minha mãe fez salgadinho de pizza",

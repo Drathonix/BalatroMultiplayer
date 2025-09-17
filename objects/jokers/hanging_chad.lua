@@ -1,6 +1,6 @@
 SMODS.Joker({
 	key = "hanging_chad",
-	-- no_collection = true,
+	no_collection = true,
 	unlocked = true,
 	discovered = true,
 	blueprint_compat = true,
@@ -34,6 +34,6 @@ SMODS.Joker({
 		end
 	end,
 	in_pool = function(self)
-		return MP.UTILS.is_standard_ruleset() and MP.LOBBY.code
+		return (MP.UTILS.is_standard_ruleset() or MP.LOBBY.config.ruleset == "ruleset_mp_sandbox") and MP.LOBBY.code
 	end,
 })

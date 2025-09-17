@@ -71,9 +71,7 @@ function G.UIDEF.create_UIBox_custom_seed_overlay()
 end
 
 local function create_custom_seed_section()
-	if MP.LOBBY.config.different_seeds then
-		return { n = G.UIT.B, config = { w = 0.1, h = 0.1 } }
-	end
+	if MP.LOBBY.config.different_seeds then return { n = G.UIT.B, config = { w = 0.1, h = 0.1 } } end
 
 	return {
 		n = G.UIT.R,
@@ -191,7 +189,12 @@ function MP.UI.create_advanced_options_tab()
 		},
 		nodes = {
 			create_lobby_option_toggle("preview_disabled_toggle", "b_opts_disable_preview", "preview_disabled"),
-			create_lobby_option_toggle("order_toggle", "b_opts_disable_the_order", "disable_the_order"),
+			create_lobby_option_toggle("order_toggle", "b_opts_the_order", "the_order"),
+			MP.LOBBY.config.ruleset == "ruleset_mp_smallworld" and create_lobby_option_toggle(
+				"legacy_smallworld_toggle",
+				"b_opts_legacy_smallworld",
+				"legacy_smallworld"
+			) or nil,
 			create_lobby_option_toggle(
 				"different_seeds_toggle",
 				"b_opts_diff_seeds",
