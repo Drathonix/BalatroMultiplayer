@@ -1,3 +1,15 @@
+# Cryptid Edition
+**[This fork uses a custom server for gameplay](https://github.com/Drathonix/BalatroMultiplayerRyuuServer)**
+
+This Fork was specifically made to add additional support for Cryptid as the current version of balatro multiplayer has a few significant issues that occur due to Cryptid's schenanegans. Here's a list of changes and fixes.
+
+1. Added a way for servers to send over a name to clients to differentiate.
+2. The Server side now properly handles the Hands value when it is a non-integer value, in cryptid this causes the round to end when hands < 1, but the server only ends when hands are <= 0. This can cause a client freeze, effectively ending the game, as such I've patched the problem.
+3. Patched a client side issue where the player's "discard" deck would be re-added to the "draw" deck causing a strange issue where card duplication would occur and the duplicate cards would not only be permanently added to the deck, they would also be permanently flipped over.
+4. Patched a client side issue where upon draining the "draw" and "held" deck (no more cards to play) while having >=1 hands remaining the game would freeze, this has been fixed by having the client set hands to 0 when no cards are left.
+5. Patched an intrusive lovely patch that broke Cryptid's Loopy card which resets its values at the end of the round, originally multiplayer replaced the entire function which effectively deleted the Cryptid injected code, Multiplayer now just injects all the relevant code into the function. This may fix problems with other mods as well.
+6. Added a "Nerf Cryptid" ruleset, This ruleset replaced the Blitz ruleset with "ERROR". This is because I was too lazy to setup translation and didn't want to bother messing with the buttons (I HATE GUIS). 
+
 # Balatro Multiplayer Mod
 
 ![ModIcon](https://github.com/Balatro-Multiplayer/BalatroMultiplayer/blob/2cd9015963c1118e0b849f11e7c335f97b74f36c/assets/2x/modicon.png)
